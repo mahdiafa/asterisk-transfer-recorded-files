@@ -5,14 +5,14 @@
 # for that firstly find the old files and after archive, scp them to the backup server
 time=$(date)
 year=$(date +"%") # find the year
-date=$(date +"%Y%m" --date="180 day ago") 
-olddate=$(date +"%Y%m" --date="210 day ago")
-log="/tmp/transfer.$(date +%Y%m%d).log"
-dir="/var/spool/asterisk/monitor"
+date=$(date +"%Y%m" --date="180 day ago") # find date (month of the year) that you want to backup and transfers recorded files  
+olddate=$(date +"%Y%m" --date="210 day ago") # find date (month of the year) that you backup and transfers recorded files last month
+log="/tmp/transfer.$(date +%Y%m%d).log" # where you would like logs stored
+dir="/var/spool/asterisk/monitor" # default directory of asterisk that store the recorded files
 srv="BACKUPSERVER" # Please change it to name or IP of your backup server
 port="22" # if you  changed the default ssh port, please change it
 maillist="your-email@your-domain" # Please change it to your email address
-host=$(hostname -s)
+host=$(hostname -s) # it is just hostname
 avail=$(df -Ph / | awk '{print $4}' | grep -v Av)
 oldsrvfile=$(ssh backup@"$srv" -p"$port" du -h /backup/"$host"/"$year"/"$olddate" | awk '{print $1}' | sed s/G//)
 oldfile=$(du -ch "$dir"/arch* | tail -1 | awk '{print $1}' | sed s/G//)
