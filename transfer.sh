@@ -4,7 +4,7 @@
 # This is for transfer old recorded voice from elastix to backup server
 # for that firstly find the old files and after archive, scp them to the backup server
 time=$(date)
-year=$(date +"%") # find the year
+year=$(date +"%Y") # find the year
 date=$(date +"%Y%m" --date="180 day ago") # find date (month of the year) that you want to backup and transfers recorded files  
 olddate=$(date +"%Y%m" --date="210 day ago") # find date (month of the year) that you backup and transfers recorded files last month
 log="/tmp/transfer.$(date +%Y%m%d).log" # where you would like logs stored
