@@ -62,7 +62,7 @@ echo "directory created with $? return code"
 echo "Transfer stop at $time for $date date files with return code $?" >> "$log"
 
 # find md5 checksum
-cd "$dir" /usr/bin/md5sum archive-* > /tmp/sum
+cd "$dir" && /usr/bin/md5sum archive-* > /tmp/sum
 
 # check old file are exist in the backup server or not
 /usr/bin/ssh backup@"$srv" -p"$port" cd /backup/"$host"/"$year"/"$date"/ && /usr/bin/md5sum archi* > /tmp/rsum &&
