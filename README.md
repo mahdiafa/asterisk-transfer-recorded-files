@@ -1,2 +1,4 @@
-# asterisk-transfer-recorded-files
-transfer old recorded voice from asterisk to backup server
+# asterisk (PBX) transfer recorded files
+###### The script moving recoded voices from asterisk server to a remote storage space, for making more free spaces by removing old recorded files on live PBX server.
+The out date files are defined as 180 days old, which should be migrated from PBX, separated in three categories `“*Incoming*"`, `“*Outgoing*”` and `“*Group*”`.
+After archiving 3 different categories the files will be copied via “scp” to a remote storage. Then it’s time to compare the copied files into the remote server with what are still existed on PBX server to guarantee that the files are copied correctly via “diff” and “checksum”. If there is no difference, files will be deleted from PBX. At the last step the script sends the email notification for successfully done function, or even might send the error messages to the admin email in the case of problems.

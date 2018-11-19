@@ -2,7 +2,7 @@
 # Creator: Mahdi Afazeli
 # Created on: 2018-02-25
 # REV 1.1.B
-# This is for transfer old recorded voice from elastix to backup server
+# This is for transfer old recorded voice from Asterisk (PBX) to backup server
 # for that firstly find the old files and after archive, scp them to the backup server
 time=$(date)
 year=$(date +"%Y") # find the year
